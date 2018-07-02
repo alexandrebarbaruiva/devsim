@@ -12,15 +12,15 @@ default: full
 run:
 	@python3 game/main.py
 
-full: test behave style
+full: test cov behave style
 
 test:
-	green3 .
+	@green3 .
 
 cov:
-	coverage run -m py.test $(dev_test) $(empl_test) $(soft_test) $(menu_test)
-	coverage report -m $(dev) $(empl) $(soft) $(menu)
-	coverage html $(dev) $(empl) $(soft) $(menu)
+	@coverage run -m py.test $(dev_test) $(empl_test) $(soft_test) $(menu_test)
+	@coverage report -m $(dev) $(empl) $(soft) $(menu)
+	@coverage html $(dev) $(empl) $(soft) $(menu)
 
 style:
 	@pycodestyle game/. tests/. --ignore=E402,W504
@@ -32,7 +32,7 @@ install:
 	pip install -r requirements.txt
 
 behave:
-	behave tests/features
+	@behave tests/features
 
 travis: test style
 	coverage run -m py.test $(dev_test) $(empl_test) $(soft_test) $(menu_test)
