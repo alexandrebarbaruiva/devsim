@@ -1,4 +1,4 @@
-green
+green==2.12.1
 pycodestyle
 pydocstyle
 behave
