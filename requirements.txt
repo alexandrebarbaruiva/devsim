@@ -3,5 +3,5 @@ pycodestyle==2.4.0
 pydocstyle==2.1.1
 behave==1.2.6
 codecov==2.0.15
-coverage
+coverage==4.5.1
 pytest
