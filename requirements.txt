@@ -2,6 +2,6 @@ green==2.12.1
 pycodestyle==2.4.0
 pydocstyle==2.1.1
 behave==1.2.6
-codecov
+codecov==2.0.15
 coverage
 pytest
