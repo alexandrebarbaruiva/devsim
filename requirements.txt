@@ -1,0 +1,7 @@
+green
+pycodestyle
+pydocstyle
+behave
+codecov
+coverage
+pytest
