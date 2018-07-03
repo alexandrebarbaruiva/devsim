@@ -45,4 +45,4 @@ behave:
 	@behave tests/features
 
 travis: test style
-	coverage run -m py.test $(dev_test) $(empl_test) $(soft_test) $(menu_test)
+	coverage run -m py.test $(all_tests)
