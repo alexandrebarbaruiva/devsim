@@ -12,6 +12,7 @@ class TestCompanyBasics(unittest.TestCase):
         self.assertEqual(
             self.comp.stats,
             {
+                "name": "",
                 "people": {
                     "leaders": [0, []],
                     "designers": [0, []],

@@ -7,6 +7,17 @@ class TestDeveloperBasics(unittest.TestCase):
     def setUp(self):
         self.dev = Developer()
 
+    def test_dev_stats(self):
+        self.dev = Developer(name="Turing")
+        self.assertEqual(
+            self.dev.stats,
+            {
+                "name": "Turing",
+                "type": "developer",
+                "happy": 100,
+                "stress": 0,
+            }, msg="Wrong developer stats")
+
     @patch('game.software.Software')
     def test_developer_code(self, software):
         """Check if developer has code method code"""
