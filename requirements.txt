@@ -5,5 +5,3 @@ behave==1.2.6
 codecov==2.0.15
 coverage==4.5.1
 pytest==3.6.2
-PyObjC
-arcade
