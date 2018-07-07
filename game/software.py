@@ -12,6 +12,7 @@ class Software:
         if completion < 100:
             self.stats["releasable"] = False
         else:
+            self.stats["completion"] = 100
             self.stats["releasable"] = True
 
     def add_code(self):
