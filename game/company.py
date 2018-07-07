@@ -6,8 +6,9 @@ class Company:
 
     stats = {}
 
-    def __init__(self):
+    def __init__(self, name=""):
         self.stats = {
+            "name": name,
             "people": {
                 "leaders": [0, []],
                 "designers": [0, []],

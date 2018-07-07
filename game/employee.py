@@ -1,8 +1,9 @@
 class Employee:
     stats = {}
 
-    def __init__(self, happy=0, stress=0):
+    def __init__(self, happy=0, stress=0, name=""):
         self.stats = {
+            "name": name,
             "type": "employee",
             "happy": happy,
             "stress": stress,

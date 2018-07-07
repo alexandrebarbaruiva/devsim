@@ -1,3 +1,6 @@
+import os
+
+
 def start_game():
     print("Welcome to DevSim")
     print("1. Play")
@@ -15,6 +18,11 @@ def start_game():
             choice = 0
     return choice
 
+def play_turn(turn):
+    os.system('clear')
+    print("-----------------------------")
+    print("Turn: {}".format(turn))
+    return turn + 1
 
 if __name__ == '__main__':
     start_game()

@@ -11,6 +11,7 @@ class TestEmployeeBasics(unittest.TestCase):
         self.assertEqual(
             self.emp.stats,
             {
+                "name": "",
                 "type": "employee",
                 "happy": 0,
                 "stress": 0,
