@@ -18,11 +18,21 @@ def start_game():
             choice = 0
     return choice
 
-def play_turn(turn):
+
+def play_turn(turn=0):
     os.system('clear')
     print("-----------------------------")
     print("Turn: {}".format(turn))
+    print("-----------------------------")
     return turn + 1
 
+
+def main():
+    a = start_game()
+    if a == 1:
+        play_turn()
+    return 0
+
+
 if __name__ == '__main__':
-    start_game()
+    main()

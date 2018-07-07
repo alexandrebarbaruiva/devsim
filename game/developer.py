@@ -5,7 +5,8 @@ from game.employee import Employee
 
 class Developer(Employee):
     """Employee for developing Software and removing bugs."""
-    def __init__(self):
+    def __init__(self, name=""):
+        Employee.__init__(self, happy=100, name=name)
         self.stats["type"] = "developer"
 
     def develop(self, software):
