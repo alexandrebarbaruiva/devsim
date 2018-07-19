@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch
-from game.main import start_game, play_turn, main
+from game.main import start_game, play_turn, main, set_up_player
 
 
 class TestGameMenu(unittest.TestCase):
@@ -32,6 +32,13 @@ class TestGameMenu(unittest.TestCase):
         with patch("builtins.input", side_effect=expected):
             self.assertEqual(start_game(), 1,
                              msg="Missing Start Game option")
+
+    def test_player_set_up(self):
+        expected = "Rich Company"
+        with patch("builtins.input", return_value=expected):
+            self.assertEqual(
+                set_up_player(), "Rich Company",
+                msg="Game did not properly run")
 
 
 class TestTurnBased(unittest.TestCase):
