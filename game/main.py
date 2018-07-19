@@ -1,9 +1,17 @@
 import os
+import sys
+from time import sleep
+sys.path.append(
+    os.path.dirname(
+        os.path.dirname(os.path.realpath(__file__))
+    )
+)
+from game.company import Company
 
 
 def start_game():
     print("Welcome to DevSim")
-    print("1. Play")
+    print("1. New Game")
     print("2. Load")
     print("3. Quit")
     try:
@@ -27,10 +35,26 @@ def play_turn(turn=0):
     return turn + 1
 
 
+def set_up_player(sleep_time=0):
+    print("Welcome to DevSim!\n")
+    print("This is a world very much like yours,")
+    print("Where ethics and good principles should")
+    print("rule the software world.\n")
+    sleep(sleep_time)
+    company_name = input("What is your company's name? ")
+    sleep(sleep_time)
+    return company_name
+
+
 def main():
     a = start_game()
     if a == 1:
-        play_turn()
+        player_company = Company(set_up_player())
+        print(player_company.stats)
+        turn = 0
+        while turn < 3:
+            turn = play_turn(turn)
+            sleep(1)
     return 0
 
 
