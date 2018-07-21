@@ -73,6 +73,9 @@
 - happiness (int)
 - stress (int)
 
+## Knowledge
+- Project management //highest level 
+
 ----------------------------------------------------
 # Leader {Employee}
 
@@ -87,9 +90,8 @@
 # Designer {Employee}
 
 ## Knowledge
-- Charisma
-- Empathy
+- Prototyping
+- Technique
 - Creativity
-- Confidence
-- Sense of humor
+- Research
 
