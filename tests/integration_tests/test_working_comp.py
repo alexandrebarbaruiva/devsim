@@ -11,11 +11,11 @@ class TestWorkingCompany(unittest.TestCase):
     def test_company_hiring_developer(self):
         """Check if company has expected behaviour when hiring devs"""
         self.assertEqual(
-            self.comp.stats["people"]["developers"][0], 0,
+            self.comp.stats["employees"]["developers"][0], 0,
             msg="Company has more than 0 developers")
         self.assertEqual(
             self.comp.hire_person(self.dev), "Developer hired",
             msg="Company hasn't hired any developers")
         self.assertEqual(
-            self.comp.stats["people"]["developers"][0], 1,
+            self.comp.stats["employees"]["developers"][0], 1,
             msg="Company has more than 1 developer")

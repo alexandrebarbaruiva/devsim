@@ -27,11 +27,18 @@ def start_game():
     return choice
 
 
-def play_turn(turn=0):
+def play_turn(turn=0, company=None):
     os.system('clear')
-    print("-----------------------------")
-    print("Turn: {}".format(turn))
-    print("-----------------------------")
+    if company:
+        print("-----------------------------")
+        print("Company: {}".format(company.stats["name"]))
+        print("{0} year(s) old, {1} fan(s), {2} star(s)".format(
+            company.stats["age"],
+            company.stats["fans"],
+            company.stats["rating"]
+        ))
+        print("Turn: {}".format(turn))
+        print("-----------------------------")
     return turn + 1
 
 
@@ -53,7 +60,7 @@ def main():
         print(player_company.stats)
         turn = 0
         while turn < 3:
-            turn = play_turn(turn)
+            turn = play_turn(turn, player_company)
             sleep(1)
     return 0
 

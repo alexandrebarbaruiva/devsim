@@ -4,16 +4,17 @@ from game.main import start_game, play_turn, main, set_up_player
 
 
 class TestGameMenu(unittest.TestCase):
+    """Test all functions that generate a menu."""
 
     def test_start_game(self):
-        """Check if game starts properly."""
+        """Check if game menu starts properly."""
         expected = 1
         with patch("builtins.input", return_value=expected):
             self.assertEqual(start_game(), expected,
                              msg="Missing Start Game option")
 
     def test_start_game_with_wrong_input_type(self):
-        """Check if game doesn't start when passed wrong input."""
+        """Check if game menu doesn't start when passed wrong input."""
         expected = ("a", 1)
         with patch("builtins.input", side_effect=expected):
             self.assertEqual(start_game(), 1,
@@ -27,13 +28,14 @@ class TestGameMenu(unittest.TestCase):
                              msg="Missing Start Game option")
 
     def test_start_game_with_wrong_input_number(self):
-        """Check if game doesn't start when passed wrong input number."""
+        """Check if game menu doesn't start when passed wrong input number."""
         expected = (5, 1)
         with patch("builtins.input", side_effect=expected):
             self.assertEqual(start_game(), 1,
                              msg="Missing Start Game option")
 
     def test_player_set_up(self):
+        """Check if setup menu accepts input and returns accordingly."""
         expected = "Rich Company"
         with patch("builtins.input", return_value=expected):
             self.assertEqual(
@@ -41,13 +43,23 @@ class TestGameMenu(unittest.TestCase):
                 msg="Game did not properly run")
 
 
-class TestTurnBased(unittest.TestCase):
-
+class TestTurns(unittest.TestCase):
+    """Test what each game turn returns."""
     def test_turn_behavior(self):
         self.assertEqual(play_turn(), 1, msg="Turn not registered successfuly")
 
+    @patch('game.company.Company')
+    def test_turn_behavior_with_company(self, company):
+        company.stats = {"name": "Test", "age": 0, "fans": 0, "rating": 0}
+        with patch.dict(company.stats):
+            self.assertEqual(
+                play_turn(company=company), 1,
+                msg="Turn not registered successfuly"
+            )
+
 
 class TestGamePlayThrough(unittest.TestCase):
+    """Test main function. Soon has to be moved to integration test."""
     def test_main_game_with_start(self):
         expected = 1
         with patch("builtins.input", return_value=expected):

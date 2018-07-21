@@ -13,20 +13,20 @@ class TestCompanyBasics(unittest.TestCase):
             self.comp.stats,
             {
                 "name": "",
-                "people": {
+                "age": 0,
+                "rating": 0,
+                "fans": 0,
+                "employees": {
                     "leaders": [0, []],
                     "designers": [0, []],
                     "developers": [0, []],
                     "marketers": [0, []],
                 },
-                "resources": {
-                    "money": 0,
-                    "fans": 0,
-                    "rating": 0,
+                "financial": {
+                    "funds": 0,
                 },
-                "software": {
+                "product stats": {
                     "software": [0, []],
-                    "code quality": 0,
                 },
             },
             msg="Missing Company attributes")

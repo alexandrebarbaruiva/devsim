@@ -1,0 +1,95 @@
+----------------------------------------------------
+# Software
+
+## General
+- name (string)
+- version (double)
+- price (double)
+- indoor (bool)
+- open-source (bool)
+
+## User related
+- maximum users (int)
+- appeal (int) // hype, when in marketing (marketing)
+- popularity (int) // when in use (marketing + robustness - bugs)
+
+## Finances
+- sold units (int)
+- returned units (int)
+- gross revenue (double)
+- net revenue (double)
+
+## Development related (hidden)
+- released (bool)
+- completion (int)
+- bugs (int)
+
+----------------------------------------------------
+# Company
+
+## General
+- name (string)
+- age (int)
+- rating (int)
+- fans (int)
+
+## Employees
+- teams [mixed]
+	- amount of people (int)
+	- methodology (string)
+	- employees [employees]
+	- total salary (int)
+
+## Finances
+- funds (double)
+- monthly expenditure [double]
+	- employee salary
+	- lease
+	- energy
+	- internet
+	- maintenance
+- monthly income
+	- contracts
+	- products sold
+
+## Stats
+- softwares completed (int)
+- softwares delivered (int)
+- open source softwares (int)
+- contracts completed (int)
+- contracts failed (int)
+
+----------------------------------------------------
+# Employee
+
+## General
+- name (string)
+- age (int)
+- salary (int)
+- traits [string]
+
+## Mood
+- efficiency (int)
+- happiness (int)
+- stress (int)
+
+----------------------------------------------------
+# Leader {Employee}
+
+## Knowledge
+- Empathy // deal with own team
+- Charisma // deal with other teams
+- Creativity // maintain happines
+- Confidence // improve efficiency
+- Sense of humor // lower stress levels
+
+----------------------------------------------------
+# Designer {Employee}
+
+## Knowledge
+- Charisma
+- Empathy
+- Creativity
+- Confidence
+- Sense of humor
+
