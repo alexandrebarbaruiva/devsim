@@ -1,0 +1,3 @@
+starting scenario:
+1 dev
+create at least 1 software in 10 turns
