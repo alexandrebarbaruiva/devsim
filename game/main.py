@@ -14,11 +14,15 @@ def start_game():
     print("1. New Game")
     print("2. Load")
     print("3. Quit")
+    return choose()
+
+
+def choose(init=1, end=3):
     try:
         choice = int(input("Your choice: "))
     except Exception:
         choice = 0
-    while (choice < 1 or choice > 3):
+    while (choice < init or choice > end):
         print("Choice not valid.")
         try:
             choice = int(input("Your choice: "))
@@ -27,18 +31,22 @@ def start_game():
     return choice
 
 
-def play_turn(turn=0, company=None):
+def action_turn():
+    return choose()
+
+
+def display_turn(turn=0, company=None):
     os.system('clear')
     if company:
         print("-----------------------------")
-        print("Company: {}".format(company.stats["name"]))
-        print("{0} year(s) old, {1} fan(s), {2} star(s)".format(
-            company.stats["age"],
-            company.stats["fans"],
-            company.stats["rating"]
-        ))
-        print("Turn: {}".format(turn))
+        print(f"Company: {company.stats['name']}")
+        print(f"{company.stats['age']} year(s) old, "
+              f"{company.stats['fans']} fan(s), "
+              f"{company.stats['rating']} star(s)."
+        )
+        print(f"Turn: {turn}")
         print("-----------------------------")
+        sleep(1)
     return turn + 1
 
 
@@ -60,8 +68,7 @@ def main():
         print(player_company.stats)
         turn = 0
         while turn < 3:
-            turn = play_turn(turn, player_company)
-            sleep(1)
+            turn = display_turn(turn, player_company)
     return 0
 
 

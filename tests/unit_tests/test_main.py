@@ -1,6 +1,7 @@
 import unittest
 from unittest.mock import patch
-from game.main import start_game, play_turn, main, set_up_player
+from game.main import start_game, display_turn, main,\
+    set_up_player, action_turn
 
 
 class TestGameMenu(unittest.TestCase):
@@ -42,18 +43,38 @@ class TestGameMenu(unittest.TestCase):
                 set_up_player(), "Rich Company",
                 msg="Game did not properly run")
 
+    def test_choose_action(self):
+        with patch("builtins.input", return_value=1):
+            self.assertEqual(
+                action_turn(), 1,
+                msg="Game did not properly return expected choice")
+
+    def test_choose_action_wrong_input(self):
+        expected = ("a", 2)
+        with patch("builtins.input", side_effect=expected):
+            self.assertEqual(
+                action_turn(), 2,
+                msg="Game did not properly return expected choice")
+
 
 class TestTurns(unittest.TestCase):
     """Test what each game turn returns."""
+    def test_turn_choice_behavior(self):
+        with patch("builtins.input", return_value=1):
+            self.assertEqual(
+                action_turn(), 1,
+                msg="Game did not properly return expected action")
+
+
     def test_turn_behavior(self):
-        self.assertEqual(play_turn(), 1, msg="Turn not registered successfuly")
+        self.assertEqual(display_turn(), 1, msg="Turn not registered successfuly")
 
     @patch('game.company.Company')
     def test_turn_behavior_with_company(self, company):
         company.stats = {"name": "Test", "age": 0, "fans": 0, "rating": 0}
         with patch.dict(company.stats):
             self.assertEqual(
-                play_turn(company=company), 1,
+                display_turn(company=company), 1,
                 msg="Turn not registered successfuly"
             )
 
