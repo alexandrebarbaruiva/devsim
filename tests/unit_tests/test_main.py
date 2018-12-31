@@ -1,6 +1,7 @@
 import unittest
 from unittest.mock import patch
-from game.main import start_game, play_turn, main, set_up_player
+from game.main import start_game, display_turn, main,\
+    set_up_player, action_turn
 
 
 class TestGameMenu(unittest.TestCase):
@@ -45,16 +46,41 @@ class TestGameMenu(unittest.TestCase):
 
 class TestTurns(unittest.TestCase):
     """Test what each game turn returns."""
+    @patch('game.company.Company')
+    def test_choose_action(self, company):
+        company.stats = {"name": "Test", "software": []}
+        expected = (1, "name")
+        with patch.dict(company.stats):
+            with patch("builtins.input", side_effect=expected):
+                self.assertEqual(
+                    action_turn(company), 1,
+                    msg="Game did not properly return expected choice")
+
+    @patch('game.company.Company')
+    def test_choose_action_wrong_input(self, company):
+        expected = ("a", 1, "name")
+        company.stats = {"name": "Test", "software": []}
+        with patch.dict(company.stats):
+            with patch("builtins.input", side_effect=expected):
+                self.assertEqual(
+                    action_turn(company), 1,
+                    msg="Game did not properly return expected choice")
+
     def test_turn_behavior(self):
-        self.assertEqual(play_turn(), 1, msg="Turn not registered successfuly")
+        self.assertEqual(
+            display_turn(), 1, msg="Turn not registered successfully")
 
     @patch('game.company.Company')
     def test_turn_behavior_with_company(self, company):
-        company.stats = {"name": "Test", "age": 0, "fans": 0, "rating": 0}
+        company.stats = {
+            "name": "Test", "age": 0,
+            "fans": 0, "rating": 0,
+            "software": []
+        }
         with patch.dict(company.stats):
             self.assertEqual(
-                play_turn(company=company), 1,
-                msg="Turn not registered successfuly"
+                display_turn(company=company), 1,
+                msg="Turn not registered successfully"
             )
 
 
