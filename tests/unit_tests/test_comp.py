@@ -22,6 +22,7 @@ class TestCompanyBasics(unittest.TestCase):
                     "developers": [0, []],
                     "marketers": [0, []],
                 },
+                "software": [],
                 "financial": {
                     "funds": 0,
                 },
