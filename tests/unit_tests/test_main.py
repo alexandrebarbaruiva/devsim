@@ -72,7 +72,11 @@ class TestTurns(unittest.TestCase):
 
     @patch('game.company.Company')
     def test_turn_behavior_with_company(self, company):
-        company.stats = {"name": "Test", "age": 0, "fans": 0, "rating": 0, "software": []}
+        company.stats = {
+            "name": "Test", "age": 0,
+            "fans": 0, "rating": 0,
+            "software": []
+        }
         with patch.dict(company.stats):
             self.assertEqual(
                 display_turn(company=company), 1,
