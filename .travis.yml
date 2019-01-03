@@ -6,11 +6,11 @@ env:
     - CC_TEST_REPORTER_ID=64ab1accbafee2ecad636528fa5a52934e5e895ca9d3e90e0a7450362a7db749
 language: python
 python:
-- '3.6'
+- '3.6.7'
 install:
 - pip install -r requirements.txt
 script:
-- make travis
+- inv travis
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
