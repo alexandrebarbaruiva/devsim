@@ -7,7 +7,7 @@ from game.software import Software
 @given('we have a level 1 dev and an unfinished software')
 def step_impl(context):
     context.dev = Developer()
-    context.soft = Software()
+    context.soft = Software("Test")
 
 
 @when('dev codes 1 unit')
@@ -23,7 +23,7 @@ def step_impl(context):
 @given('there is a completion 99 software')
 def step_impl(context):
     context.dev = Developer()
-    context.soft = Software()
+    context.soft = Software("Test")
     context.soft.stats["completion"] = 99
 
 
@@ -37,7 +37,7 @@ def step_impl(context):
 @given('there is a completion 100 software')
 def step_impl(context):
     context.dev = Developer()
-    context.soft = Software(100)
+    context.soft = Software("Test", 100)
 
 
 @when('dev releases software')

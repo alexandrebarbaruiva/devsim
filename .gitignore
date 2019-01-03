@@ -105,3 +105,4 @@ venv.bak/
 
 # User addition
 .DS_Store
+.idea/

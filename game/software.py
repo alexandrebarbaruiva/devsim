@@ -5,7 +5,8 @@ class Software:
     """Class to be designed, developed, marketed and sold by employees."""
     stats = {}
 
-    def __init__(self, completion=0, bugs=0):
+    def __init__(self, name, completion=0, bugs=0):
+        self.stats["name"] = name
         self.stats["completion"] = completion
         self.stats["bugs"] = bugs
         self.stats["released"] = False
