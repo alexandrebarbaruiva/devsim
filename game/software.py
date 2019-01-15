@@ -4,7 +4,13 @@
 class Software:
     """Class to be designed, developed, marketed and sold by employees."""
     def __init__(self, name, progress=0, bugs=0):
-        self.stats = {"name": name, "progress": progress, "bugs": bugs, "released": False}
+        self.stats = \
+            {
+                "name": name,
+                "progress": progress,
+                "bugs": bugs,
+                "released": False
+            }
         if progress < 100:
             self.stats["releasable"] = False
         else:

@@ -66,7 +66,10 @@ def action_turn(player_company):
             cs = choose(end=len(player_company.stats["software"])) - 1
             current_software = player_company.stats["software"][cs]
             current_software.add_code()
-            print(f'{current_software.get_name()} is {current_software.get_progress()}% complete.')
+            print(
+                f'{current_software.get_name()} is '
+                f'{current_software.get_progress()}% complete.'
+            )
         else:
             print("No software found. Create one.")
     else:
