@@ -3,26 +3,27 @@
 
 class Software:
     """Class to be designed, developed, marketed and sold by employees."""
-    stats = {}
-
-    def __init__(self, name, completion=0, bugs=0):
-        self.stats["name"] = name
-        self.stats["completion"] = completion
-        self.stats["bugs"] = bugs
-        self.stats["released"] = False
-        if completion < 100:
+    def __init__(self, name, progress=0, bugs=0):
+        self.stats = {"name": name, "progress": progress, "bugs": bugs, "released": False}
+        if progress < 100:
             self.stats["releasable"] = False
         else:
-            self.stats["completion"] = 100
+            self.stats["progress"] = 100
             self.stats["releasable"] = True
 
+    def get_name(self):
+        return self.stats.get("name", "Name not found.")
+
+    def get_progress(self):
+        return self.stats.get("progress", 0)
+
     def add_code(self):
-        if self.stats["completion"] >= 99:
-            if self.stats["completion"] >= 100:
-                self.stats["completion"] = 100
+        if self.stats["progress"] >= 99:
+            if self.stats["progress"] >= 100:
+                self.stats["progress"] = 100
                 return False
             self.stats["releasable"] = True
-        self.stats["completion"] += 1
+        self.stats["progress"] += 1
         return True
 
     def be_released(self):

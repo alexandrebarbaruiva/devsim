@@ -1,11 +1,9 @@
 """All things related to Company class."""
+from game.software import Software
 
 
 class Company:
     """Company for aggregating all the information into one class."""
-
-    stats = {}
-
     def __init__(self, name="", rating=0, fans=0):
         self.stats = {
             "name": name,
@@ -26,6 +24,10 @@ class Company:
                 "software": [0, []],
             },
         }
+
+    def create_software(self, name):
+        new_software = Software(name=name)
+        self.stats["software"].append(new_software)
 
     def hire_person(self, person):
         print(person.stats["type"])
