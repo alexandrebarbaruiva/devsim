@@ -43,7 +43,7 @@ def run_turn(player_company):
     while game:
         turn = display_turn(turn, player_company)
         action_turn(player_company)
-        if turn >= 4:
+        if turn >= 10:
             game = decide_players_fate()
 
 
@@ -54,10 +54,24 @@ def action_turn(player_company):
     chosen = choose()
     if chosen == 1:
         soft_name = input("What is the software's name? ")
-        player_company.stats["software"].append(Software(name=soft_name))
+        player_company.create_software(soft_name)
         print("Software starting development now.")
     elif chosen == 2:
-        pass
+        if len(player_company.stats["software"]) >= 1:
+            __ = 1
+            for item in player_company.stats["software"]:
+                print(f"{__} - {item.stats.get('name')}")
+                __ += 1
+            print("Which software do you want to develop? ")
+            cs = choose(end=len(player_company.stats["software"])) - 1
+            current_software = player_company.stats["software"][cs]
+            current_software.add_code()
+            print(
+                f'{current_software.get_name()} is '
+                f'{current_software.get_progress()}% complete.'
+            )
+        else:
+            print("No software found. Create one.")
     else:
         pass
     return 1

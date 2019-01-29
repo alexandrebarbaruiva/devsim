@@ -21,7 +21,7 @@ class TestSoftwareBasics(unittest.TestCase):
 
     def test_completed_software(self):
         """Check for releasable status when creating a complete software."""
-        self.soft = Software(name="Test", completion=100)
+        self.soft = Software(name="Test", progress=100)
         self.assertEqual(self.soft.stats["releasable"], True)
 
     def test_software_development(self):
@@ -67,7 +67,7 @@ class TestSoftwareBasics(unittest.TestCase):
 
     def test_software_rerelease(self):
         """Check if software once released cannot be re released."""
-        self.soft = Software("Test", completion=100)
+        self.soft = Software("Test", progress=100)
         self.soft.be_released()
         self.assertEqual(
             self.soft.be_released(), False,
