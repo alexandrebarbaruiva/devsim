@@ -4,5 +4,5 @@ pydocstyle==3.0.0
 behave==1.2.6
 codecov==2.0.15
 coverage==4.5.2
-pytest==4.1.1
+pytest==4.4.2
 invoke==1.2.0
